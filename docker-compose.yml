@@ -1,0 +1,11 @@
+services:
+  postgres-db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: camila
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: cafedb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/init.sql
