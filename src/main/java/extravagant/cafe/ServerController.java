@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -92,5 +94,15 @@ public class ServerController {
     @DeleteMapping("/menu/{itemName}")
     public void delete_menu_item(@PathVariable String itemName) {
         menu_service.remove_item(itemName);
+    }
+
+    @PostMapping("/brew")
+    public ResponseEntity<String> brew(@RequestParam String beverage) {
+        if ("tea".equalsIgnoreCase(beverage)) {
+            return ResponseEntity.ok("Brewed a cup of tea!");
+        }
+        else {
+            return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).body("Error 418: I am a teapot!");
+        }
     }
 }
