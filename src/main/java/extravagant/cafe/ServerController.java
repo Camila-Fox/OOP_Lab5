@@ -19,6 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 import extravagant.cafe.menu.MenuItem;
 import extravagant.cafe.menu.MenuService;
 
+/*
+http://localhost:8080/actuator/health
+https://cafe-server-bieh.onrender.com/actuator/health
+http://localhost:8080/swagger-ui/index.html
+https://cafe-server-bieh.onrender.com/swagger-uii/index.html
+*/
+
 @RestController
 @RequestMapping("/api")
 public class ServerController {
